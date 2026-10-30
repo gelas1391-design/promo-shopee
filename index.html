@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promo Shopee</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: #111; color: #fff; font-family: Arial, sans-serif;
+    }
+    main { width: min(92vw, 480px); text-align: center; padding: 20px; }
+    video { display: block; width: 100%; max-height: 78vh; border-radius: 14px; background: #000; }
+    p { color: #ddd; }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Video Promo</h2>
+    <video id="promo" autoplay muted playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Browser kamu tidak mendukung pemutaran video.
+    </video>
+    <p id="status">Tonton sebentar, ya...</p>
+  </main>
+
+  <script>
+    const video = document.getElementById("promo");
+    const statusText = document.getElementById("status");
+    const shopeeLink = "https://s.shopee.co.id/2LZS6GGtZ1";
+
+    // Setelah video selesai, langsung buka tautan Shopee.
+    video.addEventListener("ended", () => {
+      statusText.textContent = "Mengalihkan ke Shopee...";
+      window.location.href = shopeeLink;
+    });
+
+    // Jika browser tidak dapat memutar video otomatis, beri pesan.
+    video.addEventListener("error", () => {
+      statusText.textContent = "Video gagal diputar. Coba muat ulang halaman.";
+    });
+  </script>
+</body>
+</html>
