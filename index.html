@@ -26,20 +26,12 @@
   </main>
 
   <script>
-    const video = document.getElementById("promo");
-    const statusText = document.getElementById("status");
-    const shopeeLink = "https://s.shopee.co.id/2LZS6GGtZ1";
+const video = document.getElementById("promo");
 
-    // Setelah video selesai, langsung buka tautan Shopee.
-    video.addEventListener("ended", () => {
-      statusText.textContent = "Mengalihkan ke Shopee...";
-      window.location.href = "https://s.shopee.co.id/2LZS6GGtZ1";
-    });
+video.addEventListener("ended", function() {
+  window.location.href = "https://s.shopee.co.id/2LZS6GGtZ1";
+});
+</script>
 
-    // Jika browser tidak dapat memutar video otomatis, beri pesan.
-    video.addEventListener("error", () => {
-      statusText.textContent = "Video gagal diputar. Coba muat ulang halaman.";
-    });
-  </script>
 </body>
 </html>
